@@ -18,9 +18,7 @@
     "OPEN": "OPEN",
     "BREAK": "BREAK",
     "TAKE": "TAKE",
-    "L": "LEAVE",
     "Q": "QUIT",
-    "LEAVE": "LEAVE",
     "QUIT": "QUIT"
   },
 
@@ -35,7 +33,7 @@
           "condition": "",
           "failure": ""
         },
-        "O": {
+        "OPEN": {
           "target": "OMDOOR",
           "condition": "KEY",
           "failure": "You try to open the door, but it's locked steadfastly in place. Upon closer inspection, you see that it requires a key, and is locked from the outside."
@@ -46,7 +44,7 @@
     "LROOM": {
       "name": "Living Room",
       "desc": "You appear to be in what seems like a living room. The room clearly hasn't been used in a while, judging by the amount of dust that has settled on the pieces of furniture around you. Behind you is a hallway that leads to the entry way. The your immediate left is an open door with a staircase going downwards. To the right and in front, closed doors.",
-      "options": "'N': Go forward to the closed door.\n'W' Go to the staircase.\n'E' Go the closed door on the right.\n'S' Go to the entry way.",
+      "options": "'N': Go forward to the closed door.\n'W': Go to the staircase.\n'E': Go the closed door on the right.\n'S': Go to the entry way.",
       "exits": {
         "NORTH": {
           "target": "BDROOM",
@@ -156,7 +154,7 @@
           "failure": ""
         }
       },
-      "inventory": []
+      "inventory": ["KNIFE"]
     },
     "BSMENT": {
       "name": "Basement",
