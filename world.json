@@ -1,0 +1,205 @@
+{
+  "verbs": {
+    "N": "NORTH",
+    "S": "SOUTH",
+    "E": "EAST",
+    "W": "WEST",
+    "NORTH": "NORTH",
+    "SOUTH": "SOUTH",
+    "EAST": "EAST",
+    "WEST": "WEST",
+    "D": "DOWN",
+    "U": "UP",
+    "DOWN": "DOWN",
+    "UP": "UP",
+    "O": "OPEN",
+    "B": "BREAK",
+    "T": "TAKE",
+    "OPEN": "OPEN",
+    "BREAK": "BREAK",
+    "TAKE": "TAKE",
+    "L": "LEAVE",
+    "Q": "QUIT",
+    "LEAVE": "LEAVE",
+    "QUIT": "QUIT"
+  },
+
+  "rooms": {
+    "ENTRY": {
+      "name": "Entryway",
+      "desc": "You are in an entry way, and a large metal door stands behind you. Looking down the hallway, you see a faint light emanating from some sort of room.",
+      "options": "'O': Open the metal door.\n'N': Go toward the light.",
+      "exits": {
+        "NORTH": {
+          "target": "LROOM",
+          "condition": "",
+          "failure": ""
+        },
+        "O": {
+          "target": "OMDOOR",
+          "condition": "KEY",
+          "failure": "You try to open the door, but it's locked steadfastly in place. Upon closer inspection, you see that it requires a key, and is locked from the outside."
+        }
+      },
+      "inventory": []
+    },
+    "LROOM": {
+      "name": "Living Room",
+      "desc": "You appear to be in what seems like a living room. The room clearly hasn't been used in a while, judging by the amount of dust that has settled on the pieces of furniture around you. Behind you is a hallway that leads to the entry way. The your immediate left is an open door with a staircase going downwards. To the right and in front, closed doors.",
+      "options": "'N': Go forward to the closed door.\n'W' Go to the staircase.\n'E' Go the closed door on the right.\n'S' Go to the entry way.",
+      "exits": {
+        "NORTH": {
+          "target": "BDROOM",
+          "condition": "",
+          "failure": ""
+        },
+        "WEST": {
+          "target": "BSMENT",
+          "condition": "FLASHLIGHT",
+          "failure": "You head down the stairs, but it quickly becomes too dark for you. Unable to see, you return back up to the living room."
+        },
+        "EAST": {
+          "target": "KTCHN",
+          "condition": "",
+          "failure": ""
+        },
+        "SOUTH": {
+          "target": "ENTRY",
+          "condition": "",
+          "failure": ""
+        }
+      },
+      "inventory": []
+    },
+    "BDROOM": {
+      "name": "Bedroom",
+      "desc": "A comfy, albeit worn, bed sits in the corner of the room. Clearly, this is a bedroom. A desk lamp flickers solemnly on its desk, providing brief moments of light. Above, a panel in the ceiling hangs on its hinges, an entrance to an attic. To the right, an open door leads to another room. Directly behind you is the living room.",
+      "options": "'U': Go up into the attic.\n'E': Head for the open door.\n'S': Go through the doorway behind you.",
+      "exits": {
+        "UP": {
+          "target": "ATTIC",
+          "condition": "LADDER",
+          "failure": "The ceiling is too high up. You'll need something to get you up there."
+        },
+        "EAST": {
+          "target": "BTHROOM",
+          "condition": "",
+          "failure": ""
+        },
+        "SOUTH": {
+          "target": "LROOM",
+          "condition": "",
+          "failure": ""
+        }
+      },
+      "inventory": []
+    },
+    "ATTIC": {
+      "name": "Attic",
+      "desc": "The wood creaks under your feet as you climb up into the attic. It's barely visible, but the occassional flicker from the lamp below gives you some light. A gleam catches your eye.",
+      "options": "'T': Grab whatever is gleaming.\n'D': Go back down into the bedroom.",
+      "exits": {
+        "TAKE": {
+          "target": "ITEM",
+          "condition": "",
+          "failure": ""
+        },
+        "DOWN": {
+          "target": "BDROOM",
+          "condition": "",
+          "failure": ""
+        }
+      },
+      "inventory": ["KEY"]
+    },
+    "BTHROOM": {
+      "name": "Bathroom",
+      "desc": "Broken tile litter the floor, and the smell of waste clings in the air. You're in a bathroom. The disgusting smell is oozing from the toilet. On the sink is a flashlight. To the left is a door that leads to a bedroom, and behind you is another door that leads to a kitchen.",
+      "options": "'T': Grab the flashlight.\n'W': Go to the bedroom.\n'S': Go to the kitchen.",
+      "exits": {
+        "TAKE": {
+          "target": "ITEM",
+          "condition": "",
+          "failure": ""
+        },
+        "WEST": {
+          "target": "BDROOM",
+          "condition": "",
+          "failure": ""
+        },
+        "SOUTH": {
+          "target": "KTCHN",
+          "condition": "",
+          "failure": ""
+        }
+      },
+      "inventory": ["FLASHLIGHT"]
+    },
+    "KTCHN": {
+      "name": "Kitchen",
+      "desc": "You're in a kitchen. The ceiling is covered in what looks like soot - a failed cooking attempt perhaps. Pots and pans grace the wall, although they have rusted over from lack of use. On the counter is a large butcher's knife, large even as far as butcher's knives go. In front of you is a door to a bathroom, and to the left of you is the living room.",
+      "options": "'T': Grab the knife.\n'N': Go to the bathroom.\n'W': Go to the living room.",
+      "exits": {
+        "TAKE": {
+          "target": "ITEM",
+          "condition": "",
+          "failure": ""
+        },
+        "NORTH": {
+          "target": "BTHROOM",
+          "condition": "",
+          "failure": ""
+        },
+        "WEST": {
+          "target": "LROOM",
+          "condition": "",
+          "failure": ""
+        }
+      },
+      "inventory": []
+    },
+    "BSMENT": {
+      "name": "Basement",
+      "desc": "Now armed with a flashlight, you head down the stairs, the light guiding your way. It appears that the staircase leads to a basement. There doesn't seem to be much here spare some cardboard boxes and old antiques. You do however, notice a closet to your left, boarded up with wooden planks.",
+      "options": "'B': Try to open the closet.\n'U': Go back up the stairs to the living room",
+      "exits": {
+        "BREAK": {
+          "target": "CLST",
+          "condition": "KNIFE",
+          "failure": "You can't seem to pry open the plank. It looks like you'll need something to break through."
+        },
+        "UP": {
+          "target": "LROOM",
+          "condition": "",
+          "failure": ""
+        }
+      },
+      "inventory": []
+    },
+    "CLST": {
+      "name": "Closet",
+      "desc": "You're able to use the hefty butcher's knife to cleave through the plank. The closet opens up, creaking in protest. It's mostly empty, but there is a ladder.",
+      "options": "'T': Take the ladder.\n'S': Leave the closet.",
+      "exits": {
+        "TAKE": {
+          "target": "ITEM",
+          "condition": "",
+          "failure": ""
+        },
+        "SOUTH": {
+          "target": "BSMENT",
+          "condition": "",
+          "failure": ""
+        }
+      },
+      "inventory": ["LADDER"]
+    },
+    "OMDOOR": {
+      "name": "Freedom",
+      "desc": "With the key you managed to find, you are able to open the metal door quickly. You have finally made your escape, leaving behind the eerie house you were trapped in. Congratulations, you have won!",
+      "options": "",
+      "exits": {},
+      "inventory": []
+    }
+  }
+}
